@@ -93,7 +93,7 @@ public class Aplikace extends JFrame {
             int pocetHus = Integer.parseInt(husyField.getText());
             int pocetKraliku = Integer.parseInt(kraliciField.getText());
 
-            int pocetHlav = (pocetHus + pocetKraliku);
+            int pocetHlav = pocetHus + pocetKraliku;
             int pocetNohou = (pocetHus * 2) + (pocetKraliku * 4);
 
             pocetHlavField.setText(Integer.toString(pocetHlav));
