@@ -43,10 +43,6 @@ public class Aplikace extends JFrame {
         setLayout(new MigLayout("wrap 2", "[right]rel[50:120:150,grow,fill]"));
         setMinimumSize(new Dimension(250, 200));
 
-
-
-        //TODO implementovat formulář podle zadání
-
         husyField = new JTextField();
         husyLabel = new JLabel("Husy");
         husyLabel.setDisplayedMnemonic('H');
@@ -74,7 +70,6 @@ public class Aplikace extends JFrame {
         pocetHlavField.setHorizontalAlignment(JTextField.TRAILING);
         add(pocetHlavLabel);
         add(pocetHlavField);
-        pocetHlavField.setText(husyField.getText() + kraliciField.getText());
 
         pocetNohouField = new JTextField();
         pocetNohouLabel = new JLabel("Počet nohou");
@@ -83,8 +78,6 @@ public class Aplikace extends JFrame {
         pocetNohouField.setHorizontalAlignment(JTextField.TRAILING);
         add(pocetNohouLabel);
         add(pocetNohouField);
-        pocetNohouField.setText(husyField.getText() + kraliciField.getText());
-
 
         pack();
 
@@ -97,21 +90,13 @@ public class Aplikace extends JFrame {
 //METODA NA VÝPOČET HLAV A NOHOU
     private void handleVypocitat(ActionEvent actionEvent) {
 
-            String pocetHus =  husyField.getText();
-            int IntPocetHus = Integer.parseInt(pocetHus);
+            int pocetHus = Integer.parseInt(husyField.getText());
+            int pocetKraliku = Integer.parseInt(kraliciField.getText());
 
-            String pocetKraliku =  kraliciField.getText();
-            int IntPocetKraliku = Integer.parseInt(pocetKraliku);
+            int pocetHlav = (pocetHus + pocetKraliku);
+            int pocetNohou = (pocetHus * 2) + (pocetKraliku * 4);
 
-            int pocetHlav;
-            pocetHlav = (IntPocetHus + (IntPocetKraliku * 2));
-            String stringPocetHlav = Integer.toString(pocetHlav);
-            pocetHlavField.setText(stringPocetHlav);
-
-            int pocetNohou;
-            pocetNohou = (IntPocetHus * 2) + (IntPocetKraliku * 4);
-            String stringPocetNohou = Integer.toString(pocetNohou);
-            pocetNohouField.setText(stringPocetNohou);
-
+            pocetHlavField.setText(Integer.toString(pocetHlav));
+            pocetNohouField.setText(Integer.toString(pocetNohou));
     }
 }
